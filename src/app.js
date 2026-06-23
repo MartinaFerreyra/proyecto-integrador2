@@ -11,9 +11,12 @@ app.use(express.json())
 // rutas
 const authorsRoutes = require('./routes/authors')
 const postsRoutes = require('./routes/posts')
+const commentsRoutes = require('./routes/comments')
+
 
 app.use('/authors', authorsRoutes)
 app.use('/posts', postsRoutes)
+app.use('/comments', commentsRoutes)
 
 // health check
 app.get('/health', (req, res) => {
