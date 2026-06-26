@@ -21,9 +21,9 @@ paths:
             application/json:
               example:
                 - id: 1
-                  name: "Ana García"
-                  email: "ana@email.com"
-                  bio: "Escritora"
+                  name: "Carlos López"
+                  email: "carlos.lopez@email.com"
+                  bio: "Desarrollador web"
                   created_at: "2024-01-01T00:00:00.000Z"
 
     post:
@@ -33,9 +33,9 @@ paths:
         content:
           application/json:
             example:
-              name: "Ana García"
-              email: "ana@email.com"
-              bio: "Escritora"
+              name: "Carlos López"
+              email: "carlos.lopez@email.com"
+              bio: "Desarrollador web"
       responses:
         "201":
           description: Autor creado
@@ -70,8 +70,8 @@ paths:
         content:
           application/json:
             example:
-              name: "Ana García"
-              email: "ana@email.com"
+              name: "Carlos López"
+              email: "carlos.lopez@email.com"
               bio: "Bio actualizada"
       responses:
         "200":
@@ -191,10 +191,6 @@ paths:
           description: Posts del autor
         "404":
           description: Autor no encontrado
-
-  # =========================
-  # COMMENTS
-  # =========================
 
   /comments:
     get:
