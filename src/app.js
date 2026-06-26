@@ -3,15 +3,27 @@ require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
 
+const swaggerUi = require('swagger-ui-express')
+const YAML = require('yamljs')
+
 const app = express()
+
+const swaggerDocument = YAML.load('./openapi.yaml')
+
 
 app.use(cors())
 app.use(express.json())
+
+
+// Swagger
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 // rutas
 const authorsRoutes = require('./routes/authors')
 const postsRoutes = require('./routes/posts')
 const commentsRoutes = require('./routes/comments')
+
+
 
 
 app.use('/authors', authorsRoutes)
