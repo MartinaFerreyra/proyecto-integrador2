@@ -2,7 +2,7 @@ openapi: "3.0.0"
 info:
   title: MiniBlog API
   version: "1.0.0"
-  description: API REST para gestionar autores y posts
+  description: API REST para gestionar autores, posts y comentarios
 
 servers:
   - url: http://localhost:3000
@@ -25,6 +25,7 @@ paths:
                   email: "ana@email.com"
                   bio: "Escritora"
                   created_at: "2024-01-01T00:00:00.000Z"
+
     post:
       summary: Crear un autor
       requestBody:
@@ -55,6 +56,7 @@ paths:
           description: Autor encontrado
         "404":
           description: Autor no encontrado
+
     put:
       summary: Actualizar un autor
       parameters:
@@ -76,6 +78,7 @@ paths:
           description: Autor actualizado
         "404":
           description: Autor no encontrado
+
     delete:
       summary: Eliminar un autor
       parameters:
@@ -105,6 +108,7 @@ paths:
                   content: "Contenido del post"
                   published: true
                   created_at: "2024-01-01T00:00:00.000Z"
+
     post:
       summary: Crear un post
       requestBody:
@@ -136,6 +140,7 @@ paths:
           description: Post encontrado
         "404":
           description: Post no encontrado
+
     put:
       summary: Actualizar un post
       parameters:
@@ -157,6 +162,7 @@ paths:
           description: Post actualizado
         "404":
           description: Post no encontrado
+
     delete:
       summary: Eliminar un post
       parameters:
@@ -183,19 +189,20 @@ paths:
       responses:
         "200":
           description: Posts del autor
-          content:
-            application/json:
-              example:
-                - id: 1
-                  title: "Mi primer post"
-                  content: "Contenido"
-                  published: true
-                  author_name: "Ana García"
-                  author_email: "ana@email.com"
         "404":
           description: Autor no encontrado
 
+  # =========================
+  # COMMENTS
+  # =========================
+
   /comments:
+    get:
+      summary: Listar todos los comentarios
+      responses:
+        "200":
+          description: Lista de comentarios
+
     post:
       summary: Crear un comentario
       requestBody:
@@ -212,6 +219,35 @@ paths:
         "400":
           description: Datos inválidos
 
+  /comments/{id}:
+    get:
+      summary: Obtener comentario por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Comentario encontrado
+        "404":
+          description: No encontrado
+
+    delete:
+      summary: Eliminar comentario
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Comentario eliminado
+        "404":
+          description: No encontrado
+
   /comments/post/{postId}:
     get:
       summary: Obtener comentarios de un post
@@ -224,5 +260,20 @@ paths:
       responses:
         "200":
           description: Lista de comentarios
+        "404":
+          description: Post no encontrado
+
+  /posts/{id}/comments:
+    get:
+      summary: Obtener post con sus comentarios
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Post con comentarios
         "404":
           description: Post no encontrado

@@ -43,7 +43,7 @@ proyecto-integrador2/
 │       ├── authors.test.js
 │       └── posts.test.js
 │
-├── openapi.yml                 # Documentación OpenAPI
+├── openapi.yaml                 # Documentación OpenAPI
 ├── .env.example
 ├── .gitignore
 └── package.json
@@ -264,12 +264,17 @@ Cubren pruebas básicas de autores y posts.
 
 # Deploy en Railway
 
-Pasos:
+API en producción
+https://proyecto-integrador2-production.up.railway.app
 
-1. Subir el proyecto a GitHub.
-2. Crear un proyecto en Railway.
-3. Seleccionar el repositorio.
-4. Agregar PostgreSQL.
+# Swagger / OpenAPI
+https://proyecto-integrador2-production.up.railway.app/api-docs/#/
+
+# Proceso de deploy
+1. Subir proyecto a GitHub
+2. Crear proyecto en Railway
+3. Conectar repositorio
+4. Agregar PostgreSQL
 5. Configurar variables de entorno:
 
 ```
@@ -289,14 +294,9 @@ Railway desplegará la aplicación automáticamente con cada actualización del 
 
 Durante el desarrollo se utilizó IA como herramienta de apoyo para:
 
-* Organización de la estructura del proyecto.
-* Resolución de errores de Node.js y Express.
-* Conexión con PostgreSQL usando pg.
-* Revisión de consultas SQL parametrizadas.
-* Creación y organización de tests.
-* Documentación del proyecto.
-
-Todo el código generado fue revisado, adaptado y comprendido antes de integrarlo al proyecto.
+* Organización de la documentación OpenAPI
+* Resolución de dudas relacionadas con Git (preparación y subida de archivos al repositorio).
+* Guía para el proceso de despliegue en Railway.
 
 ```
 ```
