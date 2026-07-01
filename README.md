@@ -270,6 +270,21 @@ https://proyecto-integrador2-production.up.railway.app
 # Swagger / OpenAPI
 https://proyecto-integrador2-production.up.railway.app/api-docs/#/
 
+### Health Check
+Estado del servidor:
+
+https://proyecto-integrador2-production.up.railway.app/health
+
+### Authors
+Listar autores:
+
+https://proyecto-integrador2-production.up.railway.app/authors
+
+### Comments
+Obtener comentarios de un post:
+
+https://proyecto-integrador2-production.up.railway.app/comments/post/1
+
 # Proceso de deploy
 1. Subir proyecto a GitHub
 2. Crear proyecto en Railway
